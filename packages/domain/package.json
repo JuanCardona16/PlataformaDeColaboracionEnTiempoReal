@@ -1,0 +1,40 @@
+{
+  "name": "@repo/domain",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./user": {
+      "types": "./dist/user/index.d.ts",
+      "default": "./dist/user/index.js"
+    },
+    "./auth": {
+      "types": "./dist/auth/index.d.ts",
+      "default": "./dist/auth/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "pnpm run clean && tsc",
+    "dev": "tsc --watch",
+    "type-check": "tsc --noEmit",
+    "clean": "rimraf dist .turbo tsconfig.tsbuildinfo"
+  },
+  "devDependencies": {
+    "@repo/shared": "workspace:*",
+    "@repo/security": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "^22.15.3",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.3.3"
+  }
+}

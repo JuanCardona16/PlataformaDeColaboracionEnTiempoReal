@@ -1,0 +1,20 @@
+{
+  "name": "@repo/realtime",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "build": "pnpm run clean && tsc",
+    "dev": "tsc --watch",
+    "type-check": "tsc --noEmit",
+    "clean": "rimraf dist .turbo tsconfig.tsbuildinfo"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.3.3"
+  }
+}

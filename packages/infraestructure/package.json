@@ -1,0 +1,47 @@
+{
+  "name": "@repo/infraestructure",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./mongodb": {
+      "import": "./dist/persistence/mongodb/index.js",
+      "types": "./dist/persistence/mongodb/index.d.ts"
+    },
+    "./events": {
+      "import": "./dist/events/index.js",
+      "types": "./dist/events/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "pnpm run clean && tsc",
+    "dev": "tsc --watch",
+    "type-check": "tsc --noEmit",
+    "clean": "rimraf dist .turbo tsconfig.tsbuildinfo"
+  },
+  "dependencies": {
+    "@repo/domain": "workspace:*",
+    "@repo/shared": "workspace:*",
+    "mongodb": "^6.0.0",
+    "mongoose": "^8.19.0"
+  },
+  "devDependencies": {
+    "@repo/domain": "workspace:*",
+    "@repo/shared": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "^24.9.1",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.3.3"
+  }
+}

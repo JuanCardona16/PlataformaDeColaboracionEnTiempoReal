@@ -1,0 +1,29 @@
+{
+  "extends": "@repo/typescript-config/base.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@repo/domain/*": ["../../packages/domain/src/*"],
+      "@repo/infraestructure/*": ["../../packages/infraestructure/src/*"],
+      "@repo/realtime/*": ["../../packages/realtime/src/*"],
+      "@repo/security/*": ["../../packages/security/src/*"],
+      "@repo/shared/*": ["../../packages/shared/src/*"]
+    },
+    "useUnknownInCatchVariables": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "composite": true,
+    "declaration": true,
+    "incremental": true,
+    "resolveJsonModule": true,
+    "lib": ["ES2022"],
+    "moduleDetection": "force",
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist", "**/*.test.ts"]
+}
+
