@@ -17,6 +17,10 @@
     "./auth": {
       "types": "./dist/auth/index.d.ts",
       "default": "./dist/auth/index.js"
+    },
+    "./room": {
+      "types": "./dist/room/index.d.ts",
+      "default": "./dist/room/index.js"
     }
   },
   "files": [
