@@ -1,7 +1,6 @@
-import { CorsConfig, originWhitelist } from "@/config/cors/index.js";
+import { CorsConfig } from "@/config/cors/index.js";
 import { setHeaders } from "@/config/headers/index.js";
 import { limiter } from "@/config/limiter/index.js";
-// import { createSocketServer } from "@repo/realtime/socket/server";
 import dotenv from "dotenv";
 import express, { Express } from "express";
 import helmet from "helmet";
@@ -43,16 +42,6 @@ async function initApp() {
 
   // Configuracion extra
   Application.disable("x-powered-by");
-
-  // Configuración de Socket.IO
-  // const { io, socketManager } = createSocketServer(
-  //   server,
-  //   container.tokenService,
-  //   originWhitelist
-  // );
-  // Configuramos los events handler para el socket
-
-  // console.log("Usuarios conectados: ", socketManager.getAllConnectedUsers());
 
   return server;
 }

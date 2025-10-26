@@ -14,6 +14,7 @@ export interface IUser {
 
 // Types Globals
 type IUserWithoutUuidProp = Omit<IUser, "uuid">;
+export type IUserZustandStore = Omit<IUser, "passwordHash">;
 
 // User services Types
 export type ICraeteUserProps = Omit<IUser, "uuid" | "settings">;
