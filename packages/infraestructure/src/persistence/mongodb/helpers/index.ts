@@ -36,7 +36,7 @@ export class MongoQueriesGlobalGeneric<T>
         .select("-_id -createdAt -passwordHash")
         .lean()
         .exec();
-      
+
       return (response as T) || null;
     } catch (error: unknown) {
       throw new Error(`Error updating document. Details: ${error}`);
@@ -63,16 +63,22 @@ export class MongoQueriesGlobalGeneric<T>
     }
   }
 
-  private flattenObject(obj: Record<string, any>, prefix = ""): Record<string, any> {
-    return Object.keys(obj).reduce((acc, key) => {
-      const value = obj[key];
-      const newKey = prefix ? `${prefix}.${key}` : key;
-      if (value && typeof value === "object" && !Array.isArray(value)) {
-        Object.assign(acc, this.flattenObject(value, newKey));
-      } else {
-        acc[newKey] = value;
-      }
-      return acc;
-    }, {} as Record<string, any>);
+  private flattenObject(
+    obj: Record<string, any>,
+    prefix = ""
+  ): Record<string, any> {
+    return Object.keys(obj).reduce(
+      (acc, key) => {
+        const value = obj[key];
+        const newKey = prefix ? `${prefix}.${key}` : key;
+        if (value && typeof value === "object" && !Array.isArray(value)) {
+          Object.assign(acc, this.flattenObject(value, newKey));
+        } else {
+          acc[newKey] = value;
+        }
+        return acc;
+      },
+      {} as Record<string, any>
+    );
   }
 }

@@ -41,5 +41,4 @@ export class UserMongoRepository implements IUserRepository {
     if (exists !== null) return true;
     return false;
   }
-
 }

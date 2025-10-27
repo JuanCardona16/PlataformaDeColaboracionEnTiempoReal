@@ -3,8 +3,25 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./server": {
+      "types": "./dist/server/index.d.ts",
+      "default": "./dist/server/index.js"
+    },
+    "./client": {
+      "types": "./dist/client/index.d.ts",
+      "default": "./dist/client/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "license": "MIT",
   "scripts": {
     "build": "pnpm run clean && tsc",
@@ -12,9 +29,18 @@
     "type-check": "tsc --noEmit",
     "clean": "rimraf dist .turbo tsconfig.tsbuildinfo"
   },
+  "dependencies": {
+    "@repo/security": "workspace:*",
+    "@repo/shared": "workspace:*",
+    "react": "19.2.0",
+    "socket.io": "4.8.1",
+    "socket.io-client": "4.8.1"
+  },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
-    "rimraf": "^5.0.5",
-    "typescript": "^5.3.3"
+    "@types/node": "24.9.1",
+    "@types/react": "^19.2.2",
+    "rimraf": "6.0.1",
+    "typescript": "5.9.3"
   }
 }

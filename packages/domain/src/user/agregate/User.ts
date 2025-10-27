@@ -1,6 +1,6 @@
-import { IUser } from '@repo/shared/types'
-import { EmailAddress } from '../value-objects/EmailAddress.js';
-import { HashedPassword } from '../value-objects/HashedPassword.js';
+import { IUser } from "@repo/shared/types";
+import { EmailAddress } from "../value-objects/EmailAddress.js";
+import { HashedPassword } from "../value-objects/HashedPassword.js";
 
 /**
  * Agregado raíz de Usuario.
@@ -52,7 +52,7 @@ export class User {
    * @returns Instancia de User que refleja el estado persistido.
    */
   public static fromPersistence(props: IUser): User {
-    return new User(props)
+    return new User(props);
   }
 
   /**
@@ -62,7 +62,7 @@ export class User {
    * @returns Copia profunda del objeto de transferencia de datos del usuario.
    */
   public getProps(): IUser {
-    return { ...this.userProps }
+    return { ...this.userProps };
   }
 
   /**
@@ -83,13 +83,12 @@ export class User {
       ...newProps,
       profile: {
         ...this.userProps.profile,
-        ...(newProps.profile || {})
+        ...(newProps.profile || {}),
       },
       settings: {
         ...this.userProps.settings,
-        ...(newProps.settings || {})
-      }
+        ...(newProps.settings || {}),
+      },
     };
   }
-
 }
