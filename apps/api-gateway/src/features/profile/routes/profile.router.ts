@@ -20,5 +20,10 @@ export default (container: IDependencyInjection): Router => {
     profileController.updateProfile.bind(profileController)
   );
 
+  profileRouter.post(
+    "/batch",
+    profileController.getUsersProfilesByIds.bind(profileController)
+  );
+
   return profileRouter;
 };

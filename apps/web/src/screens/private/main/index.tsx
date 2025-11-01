@@ -6,8 +6,6 @@ import { CirclePlus } from "lucide-react";
 const MainPage = () => {
   const { getAllRooms } = useRoom();
 
-  console.log(getAllRooms.data);
-
   if (getAllRooms.isPending) {
     return <h1>Cargando Salas Disponibles...</h1>;
   }
@@ -21,7 +19,9 @@ const MainPage = () => {
       <section className="flex justify-between items-center mb-4 p-2 select-none">
         <div>
           <h2 className="text-2xl font-semibold mb-3">Salas disponibles</h2>
-          <p className="text-sm text-gray-600">Explora, colabora y crea sin límites en tiempo real.</p>
+          <p className="text-sm text-gray-600">
+            Explora, colabora y crea sin límites en tiempo real.
+          </p>
         </div>
         <div>
           <button

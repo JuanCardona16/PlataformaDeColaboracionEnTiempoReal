@@ -42,4 +42,16 @@ export class ProfileController {
 
     res.status(200).json(profile);
   }
+
+  public async getUsersProfilesByIds(req: Request, res: Response): Promise<void> {
+    const userIds = req.body as string[];
+
+    if (!userIds || !Array.isArray(userIds) || userIds.length === 0) {
+      throw new Error("Missing or invalid userIds in request body");
+    }
+
+    const profiles = await this.profileService.findUsersProfilesByIds(userIds);
+
+    res.status(200).json(profiles);
+  }
 }

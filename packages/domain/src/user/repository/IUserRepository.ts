@@ -7,4 +7,5 @@ export interface IUserRepository {
   deleteUser(uuid: string): Promise<void>
   findUserById(uuid: string): Promise<IUser | null>
   findUserByEmail(email: string): Promise<IUser | null>
+  findUsersProfilesByIds(userIds: string[]): Promise<IUser[]>
 }

@@ -1,5 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import {
+  ChatPage,
+  HomePage,
   LoginPage,
   MainPage,
   ProfilePage,
@@ -16,10 +18,12 @@ export const ApplicationRouter = () => {
         <Route path={`/register`} element={<RegisterPage />} />
         <Route element={<AuthGuards validation={true} />}>
           <Route path="/" element={<RootLayout />}>
-            <Route index element={<MainPage />} />
-            <Route path="/my-rooms" element={<h2>Mis salas</h2>} />
-            <Route path="/chats" element={<h2>Mis chats</h2>} />
-            <Route path="profile" element={<ProfilePage />} />
+            <Route element={<HomePage />}>
+              <Route index element={<MainPage />} />
+              <Route path="/my-rooms" element={<h2>Mis salas</h2>} />
+              <Route path="/chats" element={<ChatPage />} />
+              <Route path="profile" element={<ProfilePage />} />
+            </Route>
             {/* <Route path="room/:uuid" element={<RoomPage />} /> */}
           </Route>
         </Route>

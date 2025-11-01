@@ -5,4 +5,5 @@ export const RegisterPage = lazy(() => import("./public/register"));
 export const HomePage = lazy(() => import("./private/home"));
 export const MainPage = lazy(() => import("./private/main"));
 export const ProfilePage = lazy(() => import("./private/profile"));
+export const ChatPage = lazy(() => import("./private/chats"));
 
