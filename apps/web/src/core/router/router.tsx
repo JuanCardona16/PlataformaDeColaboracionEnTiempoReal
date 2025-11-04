@@ -4,8 +4,10 @@ import {
   HomePage,
   LoginPage,
   MainPage,
+  MyRoomsPage,
   ProfilePage,
   RegisterPage,
+  RoomById,
 } from "../../screens";
 import { RootLayout } from "../../components/layouts/rootLayout";
 import { AuthGuards } from "../security/auth_guard";
@@ -20,7 +22,8 @@ export const ApplicationRouter = () => {
           <Route path="/" element={<RootLayout />}>
             <Route element={<HomePage />}>
               <Route index element={<MainPage />} />
-              <Route path="/my-rooms" element={<h2>Mis salas</h2>} />
+              <Route path="/my-rooms" element={<MyRoomsPage />} />
+              <Route path="/room/uuid" element={<RoomById />} />
               <Route path="/chats" element={<ChatPage />} />
               <Route path="profile" element={<ProfilePage />} />
             </Route>
