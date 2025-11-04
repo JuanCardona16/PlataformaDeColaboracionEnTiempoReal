@@ -25,14 +25,15 @@
   "license": "MIT",
   "scripts": {
     "build": "pnpm run clean && tsc",
-    "dev": "tsc --watch",
     "type-check": "tsc --noEmit",
     "clean": "rimraf dist .turbo tsconfig.tsbuildinfo"
   },
   "dependencies": {
     "@repo/security": "workspace:*",
     "@repo/shared": "workspace:*",
+    "@socket.io/redis-adapter": "^8.3.0",
     "react": "19.2.0",
+    "redis": "^5.9.0",
     "socket.io": "4.8.1",
     "socket.io-client": "4.8.1"
   },

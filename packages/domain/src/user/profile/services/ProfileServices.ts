@@ -19,4 +19,8 @@ export class ProfileServices {
     return await this.userRepository.deleteUser(uuid);
   }
 
+  public async findUsersProfilesByIds(userIds: string[]) {
+    if (!userIds || userIds.length === 0) throw new Error("Invalid data");
+    return await this.userRepository.findUsersProfilesByIds(userIds);
+  }
 }

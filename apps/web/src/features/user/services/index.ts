@@ -6,6 +6,10 @@ class ProfileServices {
     return response.data;
   };
 
+  getOnlineUsers = async (userIds: string[]) => {
+    const response = await ApiIntance.post("/profile/batch", userIds);
+    return response.data;
+  };
 }
 
 export default new ProfileServices();

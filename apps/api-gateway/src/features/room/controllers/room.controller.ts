@@ -7,6 +7,9 @@ export class RoomController {
   public async createRoom(req: Request, res: Response): Promise<void> {
     try {
       const { name, description, ownerId, settings, features } = req.body;
+
+      console.log("Datos para crear la sala des de la api: ", req.body)
+
       await this.roomService.createRoom({
         name,
         description,

@@ -1,5 +1,16 @@
 {
   "files": [],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@repo/domain/*": ["../../packages/domain/src/*"],
+      "@repo/infraestructure/*": ["../../packages/infraestructure/src/*"],
+      "@repo/realtime/*": ["../../packages/realtime/src/*"],
+      "@repo/security/*": ["../../packages/security/src/*"],
+      "@repo/shared/*": ["../../packages/shared/src/*"]
+    }
+  },
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }

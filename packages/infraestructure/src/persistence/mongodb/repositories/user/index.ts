@@ -41,4 +41,10 @@ export class UserMongoRepository implements IUserRepository {
     if (exists !== null) return true;
     return false;
   }
+
+  async findUsersProfilesByIds(uuids: string[]): Promise<IUser[]> {
+    return await UserModel.find({ uuid: { $in: uuids } })
+      .select('profile')
+      .lean();
+  }
 }

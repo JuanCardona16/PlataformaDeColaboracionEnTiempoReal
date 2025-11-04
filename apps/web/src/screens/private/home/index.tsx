@@ -11,7 +11,7 @@ import { Link, Outlet } from "react-router-dom";
 import { useGlobalStore } from "../../../core/zustand/global_state";
 
 const HomePage = () => {
-  const { profile } = useGlobalStore();
+  const { profile, auth } = useGlobalStore();
 
   return (
     <div className="w-full h-screen flex">
@@ -55,9 +55,15 @@ const HomePage = () => {
                 Mensajes
               </Link>
             </li>
+            <li>
+              <button
+                onClick={() => useGlobalStore.getState().logout()}
+                className="flex items-center gap-3 p-3 rounded-lg text-gray-700 hover:bg-gray-100">
+                Cerrar sesion
+              </button>
+            </li>
           </ul>
         </nav>
-
         {/* User Profile at bottom */}
         <div className="p-4 flex items-center gap-3 border-t border-gray-200 ">
           <div className="relative">
@@ -66,7 +72,8 @@ const HomePage = () => {
               alt="Profile"
               className="w-11 h-11 rounded-full"
             />
-            <span className="absolute bottom-0 right-0 block h-2.5 w-2.5 rounded-full ring-2 ring-white bg-green-400"></span>
+            <span
+              className={`absolute bottom-0 right-0 block h-2.5 w-2.5 rounded-full ring-2 ring-white ${auth.isOnline ? "bg-green-400" : "bg-gray-400"}`}></span>
           </div>
           <div>
             <p className="text-sm font-medium text-gray-800">

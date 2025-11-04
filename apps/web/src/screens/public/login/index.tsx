@@ -1,8 +1,17 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../../../features/auth/basic/hook/useAuth";
 import { useForm } from "../../../hooks";
-import { Eye, EyeOff, Lock, Mail, Shield, Users, Vote, Zap } from 'lucide-react'
-import imagen from "../../../assets/images/collaborative-voting-and-decision-making-illustrat.jpg"
+import {
+  Eye,
+  EyeOff,
+  Lock,
+  Mail,
+  Shield,
+  Users,
+  Vote,
+  Zap,
+} from "lucide-react";
+import imagen from "../../../assets/images/collaborative-voting-and-decision-making-illustrat.jpg";
 
 const LoginPage = () => {
   const {

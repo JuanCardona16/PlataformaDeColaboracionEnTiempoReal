@@ -1,1 +1,1 @@
-export * from './config/RealtimeServer.ts'
+export * from './config/RealtimeServer.js'

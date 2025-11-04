@@ -1,14 +1,13 @@
 import { useGetById } from "../../features/user/queries";
-import { HomePage } from "../../screens";
+import { Outlet } from "react-router-dom";
 
 export const RootLayout = () => {
-  // useSocket();
   useGetById();
 
   return (
     <>
       <main className="flex flex-col min-h-screen">
-        <HomePage />
+        <Outlet />
       </main>
     </>
   );
