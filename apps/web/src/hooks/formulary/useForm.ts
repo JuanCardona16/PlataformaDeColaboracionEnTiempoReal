@@ -42,6 +42,14 @@ export const useForm = <T extends Record<string, any>>(initialData: T) => {
     setFormData(initialData);
   };
 
+  // En tu hook useForm, agrega esta función:
+  const handleCheckboxChange = (name: keyof T, value: boolean) => {
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
   const toogleVisiblePassword = () => {
     setIsVisiblePassword(!IsVisiblePassword);
   };
@@ -79,6 +87,7 @@ export const useForm = <T extends Record<string, any>>(initialData: T) => {
     IsVisiblePassword,
     FormDataError,
     handleChange,
+    handleCheckboxChange,
     // resetFormData,
     toogleVisiblePassword,
     handleSubmit,

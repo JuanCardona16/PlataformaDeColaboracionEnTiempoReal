@@ -3,7 +3,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
+      "@/*": ["./src/*"],
       "@repo/domain/*": ["../../packages/domain/src/*"],
       "@repo/infraestructure/*": ["../../packages/infraestructure/src/*"],
       "@repo/realtime/*": ["../../packages/realtime/src/*"],

@@ -21,7 +21,6 @@
   ],
   "scripts": {
     "build": "pnpm run clean && tsc",
-    "dev": "tsc --watch",
     "type-check": "tsc --noEmit",
     "clean": "rimraf dist .turbo tsconfig.tsbuildinfo"
   },

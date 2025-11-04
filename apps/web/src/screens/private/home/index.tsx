@@ -64,7 +64,6 @@ const HomePage = () => {
             </li>
           </ul>
         </nav>
-
         {/* User Profile at bottom */}
         <div className="p-4 flex items-center gap-3 border-t border-gray-200 ">
           <div className="relative">
