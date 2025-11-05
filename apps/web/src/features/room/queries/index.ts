@@ -647,6 +647,8 @@ export const useGenerateAccessCode = () => {
  * Hook for joining a room by access code.
  */
 export const useJoinByAccessCode = () => {
+  const { profile } = useGlobalStore();
+
   const {
     mutateAsync: joinByAccessCode,
     isPending,
@@ -654,10 +656,11 @@ export const useJoinByAccessCode = () => {
     error,
   } = useMutation({
     mutationKey: ["room/joinByAccessCode"],
-    mutationFn: ({ code, userId }: { code: string; userId: string }) =>
-      roomServices.joinByAccessCode(code, userId),
+    mutationFn: ({ code }: { code: string }) =>
+      roomServices.joinByAccessCode(code, profile.user?.uuid ?? ""),
     onSuccess: () => {
       QueryClientConfig.invalidateQueries({ queryKey: ["rooms"] });
+      QueryClientConfig.invalidateQueries({ queryKey: ["roomsByOwner"] });
       QueryClientConfig.invalidateQueries({ queryKey: ["roomsByParticipant"] });
     },
     onError: (error) => {

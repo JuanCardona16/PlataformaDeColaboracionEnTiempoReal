@@ -1,3 +1,4 @@
+import { useRoom } from "@/features/room/hook/useRoom";
 import { useForm, type SubmitHandler } from "react-hook-form";
 
 type Input = {
@@ -14,9 +15,17 @@ const AggregateParticipantForm = ({
   roomUuid: string
 }) => {
   const { register, handleSubmit, watch } = useForm<Input>();
+  const { joinByAccessCode } = useRoom();
 
-  const onSubmitHandler: SubmitHandler<Input> = (data) => {
-    console.log("datos del formulario: ", data);
+  const onSubmitHandler: SubmitHandler<Input> = async (data) => {
+    try {
+      await joinByAccessCode.joinByAccessCode({ code: data.code });
+      console.log("Te has unido a la sala exitosamente.");
+      setOpen(false);
+    } catch (error) {
+      console.error("Error al unirse a la sala. Verifica el código.");
+      console.error("Error al unirse a la sala: ", error);
+    }
   };
 
   console.log(watch("code")); // watch input value by passing the name of it

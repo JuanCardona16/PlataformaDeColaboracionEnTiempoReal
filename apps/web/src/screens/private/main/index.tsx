@@ -10,8 +10,6 @@ import {
 import { useState } from "react";
 import AggregateParticipantForm from "../room/components/agregate_participant_form";
 
-
-
 const MainPage = () => {
   const { getAllRooms } = useRoom();
   const [open2, setOpen2] = useState(false);
