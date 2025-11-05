@@ -8,6 +8,7 @@ import {
   ProfilePage,
   RegisterPage,
   RoomById,
+  RoomSettingsPage,
 } from "../../screens";
 import { RootLayout } from "../../components/layouts/rootLayout";
 import { AuthGuards } from "../security/auth_guard";
@@ -24,6 +25,7 @@ export const ApplicationRouter = () => {
               <Route index element={<MainPage />} />
               <Route path="/my-rooms" element={<MyRoomsPage />} />
               <Route path="/room/uuid" element={<RoomById />} />
+              <Route path="/room/:uuid/settings" element={<RoomSettingsPage />} />
               <Route path="/chats" element={<ChatPage />} />
               <Route path="profile" element={<ProfilePage />} />
             </Route>

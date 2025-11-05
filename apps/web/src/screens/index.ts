@@ -8,4 +8,6 @@ export const ProfilePage = lazy(() => import("./private/profile"));
 export const ChatPage = lazy(() => import("./private/chats"));
 export const MyRoomsPage = lazy(() => import("./private/room"));
 export const RoomById = lazy(() => import("./private/room/roomId"));
+export const RoomSettingsPage = lazy(() => import("./private/room/settings"));
+// export const RoomChatPage = lazy(() => import("./private/room/chat"));
 

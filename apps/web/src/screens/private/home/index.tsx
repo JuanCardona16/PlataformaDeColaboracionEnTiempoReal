@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { Link, Outlet } from "react-router-dom";
 import { useGlobalStore } from "../../../core/zustand/global_state";
+import { QueryClientConfig } from "@/core/config/react_query";
 
 const HomePage = () => {
   const { profile, auth } = useGlobalStore();
@@ -57,7 +58,10 @@ const HomePage = () => {
             </li>
             <li>
               <button
-                onClick={() => useGlobalStore.getState().logout()}
+                onClick={() => {
+                  useGlobalStore.getState().logout();
+                  QueryClientConfig.invalidateQueries({ queryKey: ["user/profile"] });
+                }}
                 className="flex items-center gap-3 p-3 rounded-lg text-gray-700 hover:bg-gray-100">
                 Cerrar sesion
               </button>
